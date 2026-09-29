@@ -1,0 +1,600 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>边下边播转换报告</title>
+<style>
+  :root { --bg:#0f1115; --card:#171a21; --line:#262b36; --txt:#e6e9ef; --sub:#9aa4b2; --acc:#4ea1ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:32px; background:var(--bg); color:var(--txt);
+         font:14px/1.6 "Segoe UI", "Microsoft YaHei", system-ui, sans-serif; }
+  h1 { margin:0 0 4px; font-size:22px; }
+  .sub { color:var(--sub); font-size:13px; margin-bottom:24px; }
+  .cards { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+  .card { flex:1 1 150px; background:var(--card); border:1px solid var(--line);
+          border-radius:12px; padding:14px 16px; }
+  .card .k { color:var(--sub); font-size:12px; }
+  .card .v { font-size:20px; font-weight:600; margin-top:2px; }
+  .card .v small { font-size:12px; font-weight:400; color:var(--sub); }
+  .wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; background:var(--card);
+          border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  th, td { padding:9px 12px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }
+  th { background:#1c2029; font-size:12px; color:var(--sub); font-weight:600; position:sticky; top:0; }
+  tbody tr:hover { background:#1d222c; }
+  tbody tr:last-child td { border-bottom:none; }
+  td.file { color:var(--acc); font-family:Consolas, monospace; }
+  td.num { text-align:right; font-family:Consolas, monospace; }
+  td.time { color:#ffd479; font-weight:600; }
+  .tag { padding:2px 8px; border-radius:999px; font-size:12px; }
+  .tag.ok { background:rgba(46,204,113,.15); color:#2ecc71; }
+  .tag.bad { background:rgba(231,76,60,.15); color:#e74c3c; }
+  .tag.skip { background:rgba(154,164,178,.15); color:var(--sub); }
+  .tag.fast { background:rgba(78,161,255,.15); color:#4ea1ff; }
+  .tag.mid { background:rgba(255,212,121,.15); color:#ffd479; }
+  .tag.slow { background:rgba(155,89,182,.18); color:#b98ce0; }
+</style>
+</head>
+<body>
+  <h1>边下边播转换报告</h1>
+  <div class="sub">保持原容器 是 · 编码器 h264_nvenc (preset=ultrafast, crf=26) · 音频 128k · 并发 4 · 生成于 2026-09-29 14:00:24</div>
+  <div class="cards">
+    <div class="card"><div class="k">文件总数</div><div class="v">30</div></div>
+    <div class="card"><div class="k">成功 / 失败</div><div class="v">30 <small>/ 0 / 跳过 0</small></div></div>
+    <div class="card"><div class="k">总耗时</div><div class="v">00:00:04</div></div>
+    <div class="card"><div class="k">累计转换耗时</div><div class="v">15.74<small> s</small></div></div>
+    <div class="card"><div class="k">策略分布</div><div class="v">12 <small>重封装 /</small> 4 <small>换容器 /</small> 0 <small>直拷 /</small> 14 <small>重编</small></div></div>
+    <div class="card"><div class="k">体积变化</div><div class="v">216.8 <small>MB →</small> 185.75 <small>MB</small></div></div>
+    <div class="card"><div class="k">体积比</div><div class="v">85.7%</div></div>
+  </div>
+  <div class="wrap">
+  <table>
+    <thead>
+      <tr><th>#</th><th>源文件</th><th>输出文件</th><th>容器</th><th>分辨率</th><th>时长</th><th>源编码(视频/音频)</th><th>策略</th><th>输出编码</th><th>源大小(MB)</th><th>输出大小(MB)</th><th>体积比</th><th>转换耗时(s)</th><th>实时倍数</th><th>边下边播</th><th>状态</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="file">test_1080p_3gp_mpeg4.3gp</td>
+        <td class="file">test_1080p_3gp_mpeg4.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td>mpeg4 / aac</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">3.9</td>
+        <td class="num">6.13</td>
+        <td class="num">157.2%</td>
+        <td class="num time">1.11</td>
+        <td class="num">8.98</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="file">test_1080p_asf_wmv2.wmv</td>
+        <td class="file">test_1080p_asf_wmv2.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.09</td>
+        <td>wmv2 / wmav2</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">5.06</td>
+        <td class="num">7.98</td>
+        <td class="num">157.7%</td>
+        <td class="num time">1.44</td>
+        <td class="num">6.99</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="file">test_1080p_avi_mpeg4.avi</td>
+        <td class="file">test_1080p_avi_mpeg4.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.03</td>
+        <td>mpeg4 / mp3</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">21.15</td>
+        <td class="num">11.29</td>
+        <td class="num">53.4%</td>
+        <td class="num time">0.92</td>
+        <td class="num">10.85</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="file">test_1080p_flv_h264.flv</td>
+        <td class="file">test_1080p_flv_h264.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.07</td>
+        <td>h264 / mp3</td>
+        <td><span class="tag fast">仅换容器(复制)</span></td>
+        <td>复制(无损)</td>
+        <td class="num">6.94</td>
+        <td class="num">6.94</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.18</td>
+        <td class="num">57.16</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="file">test_1080p_mkv_h264.mkv</td>
+        <td class="file">test_1080p_mkv_h264.mkv</td>
+        <td>MKV</td>
+        <td>1920x1080</td>
+        <td>00:00:10.02</td>
+        <td>h264 / aac</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">7.75</td>
+        <td class="num">7.75</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.16</td>
+        <td class="num">63.55</td>
+        <td>是(容器原生流式)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="file">test_1080p_mkv_vp9.mkv</td>
+        <td class="file">test_1080p_mkv_vp9.mkv</td>
+        <td>MKV</td>
+        <td>1920x1080</td>
+        <td>00:00:10.01</td>
+        <td>vp9 / opus</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">8.77</td>
+        <td class="num">8.77</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">59.67</td>
+        <td>是(容器原生流式)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="file">test_1080p_mov_h264.mov</td>
+        <td class="file">test_1080p_mov_h264.mov</td>
+        <td>MOV</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td>h264 / aac</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">7.75</td>
+        <td class="num">7.75</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.16</td>
+        <td class="num">60.68</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td class="file">test_1080p_mov_prores.mov</td>
+        <td class="file">test_1080p_mov_prores.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td>prores / pcm_s16le</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">28.13</td>
+        <td class="num">8.6</td>
+        <td class="num">30.6%</td>
+        <td class="num time">0.91</td>
+        <td class="num">11.02</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td class="file">test_1080p_mp4_h264.mp4</td>
+        <td class="file">test_1080p_mp4_h264.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td>h264 / aac</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">7.75</td>
+        <td class="num">7.75</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">58.23</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td class="file">test_1080p_mp4_hevc.mp4</td>
+        <td class="file">test_1080p_mp4_hevc.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td>hevc / aac</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">5.86</td>
+        <td class="num">9.95</td>
+        <td class="num">169.8%</td>
+        <td class="num time">1.04</td>
+        <td class="num">9.64</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td class="file">test_1080p_mpg_mpeg2.mpg</td>
+        <td class="file">test_1080p_mpg_mpeg2.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.01</td>
+        <td>mpeg2video / mp2</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">9.83</td>
+        <td class="num">11.66</td>
+        <td class="num">118.6%</td>
+        <td class="num time">1.03</td>
+        <td class="num">9.7</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td class="file">test_1080p_ogv_theora.ogv</td>
+        <td class="file">test_1080p_ogv_theora.mp4</td>
+        <td>MP4</td>
+        <td>1920x1072</td>
+        <td>00:00:10.00</td>
+        <td>theora / vorbis</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">10.2</td>
+        <td class="num">10.67</td>
+        <td class="num">104.6%</td>
+        <td class="num time">1.03</td>
+        <td class="num">9.69</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td class="file">test_1080p_ts_h264.ts</td>
+        <td class="file">test_1080p_ts_h264.mp4</td>
+        <td>MP4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.02</td>
+        <td>h264 / aac</td>
+        <td><span class="tag fast">仅换容器(复制)</span></td>
+        <td>复制(无损)</td>
+        <td class="num">7.99</td>
+        <td class="num">7.75</td>
+        <td class="num">97.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">59.52</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td class="file">test_1080p_webm_vp8.webm</td>
+        <td class="file">test_1080p_webm_vp8.webm</td>
+        <td>WEBM</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td>vp8 / vorbis</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">1.9</td>
+        <td class="num">1.9</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.16</td>
+        <td class="num">61.33</td>
+        <td>是(容器原生流式)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td class="file">test_1080p_webm_vp9.webm</td>
+        <td class="file">test_1080p_webm_vp9.webm</td>
+        <td>WEBM</td>
+        <td>1920x1080</td>
+        <td>00:00:10.01</td>
+        <td>vp9 / opus</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">8.77</td>
+        <td class="num">8.77</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">57.36</td>
+        <td>是(容器原生流式)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td class="file">test_720p_3gp_mpeg4.3gp</td>
+        <td class="file">test_720p_3gp_mpeg4.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td>mpeg4 / aac</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">2.03</td>
+        <td class="num">4.08</td>
+        <td class="num">201.0%</td>
+        <td class="num time">0.85</td>
+        <td class="num">11.83</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td class="file">test_720p_asf_wmv2.wmv</td>
+        <td class="file">test_720p_asf_wmv2.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.09</td>
+        <td>wmv2 / wmav2</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">2.68</td>
+        <td class="num">4.2</td>
+        <td class="num">156.7%</td>
+        <td class="num time">0.84</td>
+        <td class="num">12.01</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td class="file">test_720p_avi_mpeg4.avi</td>
+        <td class="file">test_720p_avi_mpeg4.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.03</td>
+        <td>mpeg4 / mp3</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">9.81</td>
+        <td class="num">5.21</td>
+        <td class="num">53.1%</td>
+        <td class="num time">0.66</td>
+        <td class="num">15.21</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td class="file">test_720p_flv_h264.flv</td>
+        <td class="file">test_720p_flv_h264.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.07</td>
+        <td>h264 / mp3</td>
+        <td><span class="tag fast">仅换容器(复制)</span></td>
+        <td>复制(无损)</td>
+        <td class="num">3.48</td>
+        <td class="num">3.48</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">60.14</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td class="file">test_720p_mkv_h264.mkv</td>
+        <td class="file">test_720p_mkv_h264.mkv</td>
+        <td>MKV</td>
+        <td>1280x720</td>
+        <td>00:00:10.02</td>
+        <td>h264 / aac</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">3.88</td>
+        <td class="num">3.88</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">58.89</td>
+        <td>是(容器原生流式)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td class="file">test_720p_mkv_vp9.mkv</td>
+        <td class="file">test_720p_mkv_vp9.mkv</td>
+        <td>MKV</td>
+        <td>1280x720</td>
+        <td>00:00:10.01</td>
+        <td>vp9 / opus</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">4.21</td>
+        <td class="num">4.21</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">60.2</td>
+        <td>是(容器原生流式)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td class="file">test_720p_mov_h264.mov</td>
+        <td class="file">test_720p_mov_h264.mov</td>
+        <td>MOV</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td>h264 / aac</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">3.88</td>
+        <td class="num">3.88</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.16</td>
+        <td class="num">61.73</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td class="file">test_720p_mov_prores.mov</td>
+        <td class="file">test_720p_mov_prores.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td>prores / pcm_s16le</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">18.69</td>
+        <td class="num">4.43</td>
+        <td class="num">23.7%</td>
+        <td class="num time">0.85</td>
+        <td class="num">11.76</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>24</td>
+        <td class="file">test_720p_mp4_h264.mp4</td>
+        <td class="file">test_720p_mp4_h264.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td>h264 / aac</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">3.88</td>
+        <td class="num">3.88</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.18</td>
+        <td class="num">55.87</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td class="file">test_720p_mp4_hevc.mp4</td>
+        <td class="file">test_720p_mp4_hevc.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td>hevc / aac</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">2.61</td>
+        <td class="num">4.71</td>
+        <td class="num">180.5%</td>
+        <td class="num time">0.67</td>
+        <td class="num">14.96</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>26</td>
+        <td class="file">test_720p_mpg_mpeg2.mpg</td>
+        <td class="file">test_720p_mpg_mpeg2.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.01</td>
+        <td>mpeg2video / mp2</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">5.08</td>
+        <td class="num">5.63</td>
+        <td class="num">110.8%</td>
+        <td class="num time">0.83</td>
+        <td class="num">12</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>27</td>
+        <td class="file">test_720p_ogv_theora.ogv</td>
+        <td class="file">test_720p_ogv_theora.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td>theora / vorbis</td>
+        <td><span class="tag slow">重编码</span></td>
+        <td>h264_nvenc</td>
+        <td class="num">5.52</td>
+        <td class="num">5.36</td>
+        <td class="num">97.1%</td>
+        <td class="num time">0.85</td>
+        <td class="num">11.75</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>28</td>
+        <td class="file">test_720p_ts_h264.ts</td>
+        <td class="file">test_720p_ts_h264.mp4</td>
+        <td>MP4</td>
+        <td>1280x720</td>
+        <td>00:00:10.02</td>
+        <td>h264 / aac</td>
+        <td><span class="tag fast">仅换容器(复制)</span></td>
+        <td>复制(无损)</td>
+        <td class="num">4.04</td>
+        <td class="num">3.88</td>
+        <td class="num">96.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">57.9</td>
+        <td>是(moov前置)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td class="file">test_720p_webm_vp8.webm</td>
+        <td class="file">test_720p_webm_vp8.webm</td>
+        <td>WEBM</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td>vp8 / vorbis</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">1.05</td>
+        <td class="num">1.05</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.18</td>
+        <td class="num">54.24</td>
+        <td>是(容器原生流式)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>30</td>
+        <td class="file">test_720p_webm_vp9.webm</td>
+        <td class="file">test_720p_webm_vp9.webm</td>
+        <td>WEBM</td>
+        <td>1280x720</td>
+        <td>00:00:10.01</td>
+        <td>vp9 / opus</td>
+        <td><span class="tag fast">原样重封装</span></td>
+        <td>复制(无损)</td>
+        <td class="num">4.21</td>
+        <td class="num">4.21</td>
+        <td class="num">100.0%</td>
+        <td class="num time">0.17</td>
+        <td class="num">60.46</td>
+        <td>是(容器原生流式)</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</body>
+</html>

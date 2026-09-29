@@ -1,0 +1,413 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>AV1 转换报告</title>
+<style>
+  :root { --bg:#0f1115; --card:#171a21; --line:#262b36; --txt:#e6e9ef; --sub:#9aa4b2; --acc:#4ea1ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; padding:32px; background:var(--bg); color:var(--txt);
+         font:14px/1.6 "Segoe UI", "Microsoft YaHei", system-ui, sans-serif; }
+  h1 { margin:0 0 4px; font-size:22px; }
+  .sub { color:var(--sub); font-size:13px; margin-bottom:24px; }
+  .cards { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px; }
+  .card { flex:1 1 150px; background:var(--card); border:1px solid var(--line);
+          border-radius:12px; padding:14px 16px; }
+  .card .k { color:var(--sub); font-size:12px; }
+  .card .v { font-size:20px; font-weight:600; margin-top:2px; }
+  .card .v small { font-size:12px; font-weight:400; color:var(--sub); }
+  table { width:100%; border-collapse:collapse; background:var(--card);
+          border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+  th, td { padding:9px 12px; border-bottom:1px solid var(--line); text-align:left; white-space:nowrap; }
+  th { background:#1c2029; font-size:12px; color:var(--sub); font-weight:600; position:sticky; top:0; }
+  tbody tr:hover { background:#1d222c; }
+  tbody tr:last-child td { border-bottom:none; }
+  td.file { color:var(--acc); font-family:Consolas, monospace; }
+  td.num { text-align:right; font-family:Consolas, monospace; }
+  td.time { color:#ffd479; font-weight:600; }
+  .tag { padding:2px 8px; border-radius:999px; font-size:12px; }
+  .tag.ok { background:rgba(46,204,113,.15); color:#2ecc71; }
+  .tag.bad { background:rgba(231,76,60,.15); color:#e74c3c; }
+  .tag.skip { background:rgba(154,164,178,.15); color:var(--sub); }
+</style>
+</head>
+<body>
+  <h1>AV1 转换报告</h1>
+  <div class="sub">编码器 libaom-av1 (CRF=32, cpu-used=8) · 音频 AAC 128k · 边下边播 faststart · 生成于 2026-09-29 12:35:02</div>
+  <div class="cards">
+    <div class="card"><div class="k">文件总数</div><div class="v">30</div></div>
+    <div class="card"><div class="k">成功 / 失败</div><div class="v">27 <small>/ 0 / 跳过 3</small></div></div>
+    <div class="card"><div class="k">总耗时</div><div class="v">00:04:41</div></div>
+    <div class="card"><div class="k">累计转换耗时</div><div class="v">280.67<small> s</small></div></div>
+    <div class="card"><div class="k">体积变化</div><div class="v">216.8 <small>MB →</small> 115.25 <small>MB</small></div></div>
+    <div class="card"><div class="k">压缩率</div><div class="v">53.2%</div></div>
+  </div>
+  <table>
+    <thead>
+      <tr><th>#</th><th>源文件</th><th>分辨率</th><th>时长</th><th>源大小(MB)</th><th>输出大小(MB)</th><th>压缩率</th><th>转换耗时(s)</th><th>实时倍数</th><th>状态</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="file">test_1080p_3gp_mpeg4.3gp</td>
+        <td></td>
+        <td></td>
+        <td class="num">3.9</td>
+        <td class="num">2.91</td>
+        <td class="num"></td>
+        <td class="num time">0</td>
+        <td class="num"></td>
+        <td><span class="tag skip">跳过(已存在)</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="file">test_1080p_asf_wmv2.wmv</td>
+        <td></td>
+        <td></td>
+        <td class="num">5.06</td>
+        <td class="num">3.96</td>
+        <td class="num"></td>
+        <td class="num time">0</td>
+        <td class="num"></td>
+        <td><span class="tag skip">跳过(已存在)</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="file">test_1080p_avi_mpeg4.avi</td>
+        <td></td>
+        <td></td>
+        <td class="num">21.15</td>
+        <td class="num">6.2</td>
+        <td class="num"></td>
+        <td class="num time">0</td>
+        <td class="num"></td>
+        <td><span class="tag skip">跳过(已存在)</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="file">test_1080p_flv_h264.flv</td>
+        <td>1920x1080</td>
+        <td>00:00:10.07</td>
+        <td class="num">6.94</td>
+        <td class="num">6.03</td>
+        <td class="num">86.9%</td>
+        <td class="num time">12.77</td>
+        <td class="num">0.79</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="file">test_1080p_mkv_h264.mkv</td>
+        <td>1920x1080</td>
+        <td>00:00:10.02</td>
+        <td class="num">7.75</td>
+        <td class="num">6.77</td>
+        <td class="num">87.4%</td>
+        <td class="num time">14.3</td>
+        <td class="num">0.7</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="file">test_1080p_mkv_vp9.mkv</td>
+        <td>1920x1080</td>
+        <td>00:00:10.01</td>
+        <td class="num">8.77</td>
+        <td class="num">6.64</td>
+        <td class="num">75.7%</td>
+        <td class="num time">14.01</td>
+        <td class="num">0.71</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="file">test_1080p_mov_h264.mov</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td class="num">7.75</td>
+        <td class="num">6.72</td>
+        <td class="num">86.7%</td>
+        <td class="num time">14.49</td>
+        <td class="num">0.69</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td class="file">test_1080p_mov_prores.mov</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td class="num">28.13</td>
+        <td class="num">3.55</td>
+        <td class="num">12.6%</td>
+        <td class="num time">11</td>
+        <td class="num">0.91</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td class="file">test_1080p_mp4_h264.mp4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td class="num">7.75</td>
+        <td class="num">6.72</td>
+        <td class="num">86.7%</td>
+        <td class="num time">14.66</td>
+        <td class="num">0.68</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td class="file">test_1080p_mp4_hevc.mp4</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td class="num">5.86</td>
+        <td class="num">5.58</td>
+        <td class="num">95.2%</td>
+        <td class="num time">13.2</td>
+        <td class="num">0.76</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td class="file">test_1080p_mpg_mpeg2.mpg</td>
+        <td>1920x1080</td>
+        <td>00:00:10.01</td>
+        <td class="num">9.83</td>
+        <td class="num">6.86</td>
+        <td class="num">69.8%</td>
+        <td class="num time">14.5</td>
+        <td class="num">0.69</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td class="file">test_1080p_ogv_theora.ogv</td>
+        <td>1920x1072</td>
+        <td>00:00:10.00</td>
+        <td class="num">10.2</td>
+        <td class="num">5.43</td>
+        <td class="num">53.2%</td>
+        <td class="num time">20.66</td>
+        <td class="num">0.48</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td class="file">test_1080p_ts_h264.ts</td>
+        <td>1920x1080</td>
+        <td>00:00:10.02</td>
+        <td class="num">7.99</td>
+        <td class="num">6.76</td>
+        <td class="num">84.6%</td>
+        <td class="num time">14.49</td>
+        <td class="num">0.69</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td class="file">test_1080p_webm_vp8.webm</td>
+        <td>1920x1080</td>
+        <td>00:00:10.00</td>
+        <td class="num">1.9</td>
+        <td class="num">3.17</td>
+        <td class="num">166.8%</td>
+        <td class="num time">10.84</td>
+        <td class="num">0.92</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td class="file">test_1080p_webm_vp9.webm</td>
+        <td>1920x1080</td>
+        <td>00:00:10.01</td>
+        <td class="num">8.77</td>
+        <td class="num">6.64</td>
+        <td class="num">75.7%</td>
+        <td class="num time">14.01</td>
+        <td class="num">0.71</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td class="file">test_720p_3gp_mpeg4.3gp</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td class="num">2.03</td>
+        <td class="num">2.48</td>
+        <td class="num">122.2%</td>
+        <td class="num time">6.03</td>
+        <td class="num">1.66</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td class="file">test_720p_asf_wmv2.wmv</td>
+        <td>1280x720</td>
+        <td>00:00:10.09</td>
+        <td class="num">2.68</td>
+        <td class="num">2.32</td>
+        <td class="num">86.6%</td>
+        <td class="num time">5.79</td>
+        <td class="num">1.74</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td class="file">test_720p_avi_mpeg4.avi</td>
+        <td>1280x720</td>
+        <td>00:00:10.03</td>
+        <td class="num">9.81</td>
+        <td class="num">3.2</td>
+        <td class="num">32.6%</td>
+        <td class="num time">7.34</td>
+        <td class="num">1.37</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td class="file">test_720p_flv_h264.flv</td>
+        <td>1280x720</td>
+        <td>00:00:10.07</td>
+        <td class="num">3.48</td>
+        <td class="num">3.06</td>
+        <td class="num">87.9%</td>
+        <td class="num time">7.3</td>
+        <td class="num">1.38</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td class="file">test_720p_mkv_h264.mkv</td>
+        <td>1280x720</td>
+        <td>00:00:10.02</td>
+        <td class="num">3.88</td>
+        <td class="num">3.26</td>
+        <td class="num">84.0%</td>
+        <td class="num time">7.64</td>
+        <td class="num">1.31</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td class="file">test_720p_mkv_vp9.mkv</td>
+        <td>1280x720</td>
+        <td>00:00:10.01</td>
+        <td class="num">4.21</td>
+        <td class="num">3.22</td>
+        <td class="num">76.5%</td>
+        <td class="num time">7.53</td>
+        <td class="num">1.33</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td class="file">test_720p_mov_h264.mov</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td class="num">3.88</td>
+        <td class="num">3.26</td>
+        <td class="num">84.0%</td>
+        <td class="num time">7.52</td>
+        <td class="num">1.33</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td class="file">test_720p_mov_prores.mov</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td class="num">18.69</td>
+        <td class="num">1.95</td>
+        <td class="num">10.4%</td>
+        <td class="num time">6.36</td>
+        <td class="num">1.57</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>24</td>
+        <td class="file">test_720p_mp4_h264.mp4</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td class="num">3.88</td>
+        <td class="num">3.26</td>
+        <td class="num">84.0%</td>
+        <td class="num time">7.68</td>
+        <td class="num">1.3</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td class="file">test_720p_mp4_hevc.mp4</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td class="num">2.61</td>
+        <td class="num">2.76</td>
+        <td class="num">105.7%</td>
+        <td class="num time">7.11</td>
+        <td class="num">1.41</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>26</td>
+        <td class="file">test_720p_mpg_mpeg2.mpg</td>
+        <td>1280x720</td>
+        <td>00:00:10.01</td>
+        <td class="num">5.08</td>
+        <td class="num">3.58</td>
+        <td class="num">70.5%</td>
+        <td class="num time">7.59</td>
+        <td class="num">1.32</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>27</td>
+        <td class="file">test_720p_ogv_theora.ogv</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td class="num">5.52</td>
+        <td class="num">3.34</td>
+        <td class="num">60.5%</td>
+        <td class="num time">12.06</td>
+        <td class="num">0.83</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>28</td>
+        <td class="file">test_720p_ts_h264.ts</td>
+        <td>1280x720</td>
+        <td>00:00:10.02</td>
+        <td class="num">4.04</td>
+        <td class="num">3.26</td>
+        <td class="num">80.7%</td>
+        <td class="num time">7.79</td>
+        <td class="num">1.29</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>29</td>
+        <td class="file">test_720p_webm_vp8.webm</td>
+        <td>1280x720</td>
+        <td>00:00:10.00</td>
+        <td class="num">1.05</td>
+        <td class="num">2.21</td>
+        <td class="num">210.5%</td>
+        <td class="num time">6.48</td>
+        <td class="num">1.54</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+      <tr>
+        <td>30</td>
+        <td class="file">test_720p_webm_vp9.webm</td>
+        <td>1280x720</td>
+        <td>00:00:10.01</td>
+        <td class="num">4.21</td>
+        <td class="num">3.22</td>
+        <td class="num">76.5%</td>
+        <td class="num time">7.52</td>
+        <td class="num">1.33</td>
+        <td><span class="tag ok">成功</span></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
